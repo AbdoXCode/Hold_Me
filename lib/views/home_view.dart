@@ -21,7 +21,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    gyroscopeEvents.listen((GyroscopeEvent event){
+    gyroscopeEventStream().listen((GyroscopeEvent event){
       setState(() {
         double minimum=0.3;
         if(event.x.abs() <minimum&&event.y.abs() <minimum&&event.z.abs() <minimum){
@@ -40,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: isIdle ? Colors.red:Colors.green,
-      body: isIdle ? StillView():HoldView(),
+      body: isIdle ? const StillView():const HoldView(),
     );
   }
 }
