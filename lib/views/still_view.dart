@@ -1,10 +1,38 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
-class StillView extends StatelessWidget {
+class StillView extends StatefulWidget {
   const StillView({super.key});
 
   @override
+  State<StillView> createState() => _StillViewState();
+}
+
+class _StillViewState extends State<StillView> {
+
+  late final AudioPlayer player;
+  @override
+  void initState() {
+    super.initState();
+
+    player = AudioPlayer();
+    Player();
+  }
+
+  void Player(){
+    player.play(AssetSource('sound/baby_who_cries.mp3'));
+    player.setReleaseMode(ReleaseMode.loop);
+  }
+  @override
+  void dispose() {
+    player.stop();
+    player.dispose();
+    super.dispose();
+  }
+  @override
+
   Widget build(BuildContext context) {
+
     return Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

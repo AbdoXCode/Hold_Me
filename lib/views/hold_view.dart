@@ -1,9 +1,34 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HoldView extends StatelessWidget {
+class HoldView extends StatefulWidget {
   const HoldView({super.key});
 
+  @override
+  State<HoldView> createState() => _HoldViewState();
+}
+
+class _HoldViewState extends State<HoldView> {
+  late final AudioPlayer player;
+  @override
+  void initState() {
+    super.initState();
+
+    player = AudioPlayer();
+    Player();
+  }
+
+  void Player(){
+    player.play(AssetSource('sound/a_baby_laugh.mp3'));
+    player.setReleaseMode(ReleaseMode.loop);
+  }
+  @override
+  void dispose() {
+    player.stop();
+    player.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Center(
