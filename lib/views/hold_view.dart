@@ -21,7 +21,6 @@ class _HoldViewState extends State<HoldView> {
 
   void Player(){
     player.play(AssetSource('sound/a_baby_laugh.mp3'));
-    player.setReleaseMode(ReleaseMode.loop);
   }
   @override
   void dispose() {
