@@ -5,16 +5,15 @@ class StillView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Sad',style: TextStyle(fontSize: 80,fontWeight: FontWeight.bold),),
+            Image.network('https://icons.iconarchive.com/icons/microsoft/fluentui-emoji-mono/256/Dotted-Line-Face-icon.png',color: Colors.white,),
 
-            Padding(
-              padding: EdgeInsets.only(top: 8.0),
-              child: Text('☹️',style: TextStyle(fontSize: 100),),
-            )
+            SizedBox(height: 20,),
+            const Text('The Phone is Sad ☹️',style: TextStyle(fontSize: 35,fontWeight: FontWeight.bold,color:Colors.white ),),
+
           ],
         ),
     );
