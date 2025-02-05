@@ -15,19 +15,14 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
 
-  double _x = 0.0;
-  double _y = 0.0;
-  double _z = 0.0;
+
   bool isIdle = false;
 
   @override
   void initState() {
+    super.initState();
     gyroscopeEvents.listen((GyroscopeEvent event){
       setState(() {
-        _x = event.x;
-        _y = event.y;
-        _z = event.z;
-
         double minimum=0.3;
         if(event.x.abs() <minimum&&event.y.abs() <minimum&&event.z.abs() <minimum){
             isIdle = true;
